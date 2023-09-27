@@ -1,0 +1,52 @@
+/* Add these CSS styles to your component's stylesheet or a separate CSS file */
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 50px); /* Adjust the size as needed */
+    grid-template-rows: repeat(8, 50px); /* Adjust the size as needed */
+    gap: 2px;
+    height: 168px;
+    width: 414px;
+    border: 2px solid #000; /* Optional border for the chessboard */
+  }
+  
+  .chessboard-square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .light-square {
+    background-color: #f0d9b5; /* Light square color */
+  }
+  
+  .dark-square {
+    background-color: #b58863; /* Dark square color */
+  }
+  
+  .knight {
+    color: #fff; /* Knight color */
+    background-color: #007BFF; /* Knight background color */
+  }
+
+  .selected-position {
+    color: #fff; /* Knight color */
+    background-color: green; /* Knight selected background color */
+  }
+
+  .user-moves {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .user-move {
+    padding-right: 5px;
+  }
+  

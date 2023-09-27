@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Ensure you import 'Routes'
+
+import GameMenu from './GameMenu';
+import KnightsTour from './components/KnightsTour';
+import LongestCommonSequence from './components/LongestCommonSequence';
+import EightQueensPuzzle from './components/EightQueensPuzzle';
+import TicTacToe from './components/TicTacToe';
+import ShortestPath from './components/ShortestPath';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<GameMenu />} />
+        <Route path="/knights-tour" element={<KnightsTour />} />
+        <Route path="/longest-common-sequence" element={<LongestCommonSequence />} />
+        <Route path="/eight-queens-puzzle" element={<EightQueensPuzzle />} />
+        <Route path="/tic-tac-toe" element={<TicTacToe />} />
+        <Route path="/shortest-path" element={<ShortestPath />} />
+      </Routes>
+    </Router>
   );
 }
 
