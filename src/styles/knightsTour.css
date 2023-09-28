@@ -49,4 +49,26 @@
   .user-move {
     padding-right: 5px;
   }
+
+  .verify-moves-button {
+    padding: 10px 20px;
+    background-color: #007BFF; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .verify-moves-button:hover {
+    background-color: #0056b3; /* Button background color on hover */
+  }
+
+  .result-lost{
+    color: red;
+  }
+  .result-won {
+    color: green;
+  }
   

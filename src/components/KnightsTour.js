@@ -83,21 +83,6 @@ function KnightsTourGame() {
           ))}
         </div>
         <div className="user-input">
-          <h2>Enter Your Moves</h2>
-          <input
-            type="text"
-            placeholder="Enter a move (e.g., A1)"
-            value={currentMove}
-            onChange={(e) => setCurrentMove(e.target.value)}
-          />
-          <button onClick={handleAddMove}>Add Move</button>
-          <button onClick={verifyMoves}>Verify Moves</button>
-          {gameResult && (
-            <div className="result">
-              <p>Result: {gameResult.result}</p>
-              <p>Comment: {gameResult.comment}</p>
-            </div>
-          )}
           <h3>Current Selected Moves:</h3>
           <ul className="user-moves">
             {userMoves.map((move, index) => (
@@ -106,6 +91,21 @@ function KnightsTourGame() {
               </li>
             ))}
           </ul>
+          <button onClick={verifyMoves} className="verify-moves-button">
+            Verify Moves
+          </button>
+
+          {gameResult?.result && gameResult?.result == "LOST" ? (
+            <div className="result-lost">
+              <p>Result: {gameResult?.result}</p>
+              <p>Comment: {gameResult?.comment}</p>
+            </div>
+          ) : (
+            <div className="result-won">
+              <p>Result: {gameResult?.result}</p>
+              <p>Comment: {gameResult?.comment}</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
