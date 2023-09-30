@@ -12,7 +12,6 @@ function TicTacToeGame() {
   const [isGameStarted, setIsGameStarted] = useState();
   const [isGameConcluded, setIsGameConcluded] = useState();
 
-  // Function to start the game with the user's name
   const startGame = () => {
     axios
       .get(`http://localhost:8081/tictactoe/start?username=${username}`)
@@ -35,36 +34,27 @@ function TicTacToeGame() {
   };
 
   const handleSquareClick = (index) => {
-    // If the square is already filled or the game is over, do nothing
     if (board[index] || winner) {
       return;
     }
 
-    // Calculate row and column coordinates from the index
     const row = Math.floor(index / 3);
     const col = index % 3;
 
-    // Create a copy of the board
     const newBoard = [...board];
-    // Update the board with X or O based on the current turn
     newBoard[index] = isXNext ? "X" : "O";
-    // Update the state
     setBoard(newBoard);
     setIsXNext(!isXNext);
 
-    // Call the API to make the computer's move with the coordinates
     axios
       .post(`http://localhost:8081/tictactoe/play?coordinate=${row},${col}`)
       .then((response) => {
-        // Extract the computer's move coordinates from the response
         const computerMove = response.data.computerMove;
         const computerRow = computerMove[0];
         const computerCol = computerMove[1];
 
-        // Calculate the index on the board using the coordinates
         const computerIndex = computerRow * 3 + computerCol;
 
-        // Update the board with the computer's move
         newBoard[computerIndex] = "O";
         setBoard(newBoard);
         
@@ -95,7 +85,7 @@ function TicTacToeGame() {
 
   const renderSquare = (index) => (
     <div
-      className={`square ${
+      className={`square-tic ${
         board[index] ? (board[index] === "X" ? "x" : "o") : ""
       }`}
       onClick={() => handleSquareClick(index)}
@@ -121,18 +111,18 @@ function TicTacToeGame() {
             <>
             <div className="status">{!isGameConcluded && `Next player: ${isXNext ? "X" : "O"}`}</div>
             <div className="winner">Winner: {winner}</div>
-            <div className="board">
-                <div className="board-row">
+            <div className="board-tic-tac">
+                <div className="board-row-tic">
                 {renderSquare(0)}
                 {renderSquare(1)}
                 {renderSquare(2)}
                 </div>
-                <div className="board-row">
+                <div className="board-row-tic">
                 {renderSquare(3)}
                 {renderSquare(4)}
                 {renderSquare(5)}
                 </div>
-                <div className="board-row">
+                <div className="board-row-tic">
                 {renderSquare(6)}
                 {renderSquare(7)}
                 {renderSquare(8)}

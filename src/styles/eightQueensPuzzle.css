@@ -1,0 +1,79 @@
+.eight-queens-title {
+  text-align: center;   
+  padding-bottom: 0px;
+}
+
+.username-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.chessboard {
+  display: grid;
+  grid-template-columns: repeat(
+    8,
+    1fr
+  ); 
+  grid-template-rows: repeat(8, 1fr);
+  gap: 1px;
+  margin: 0 auto;
+  max-width: 400px; 
+  height: 400px;
+  border: 2px solid #333;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px; 
+}
+
+.eight-square {
+  font-size: 18px;
+  background-color: #fff;
+  cursor: pointer;
+  max-height: 49px; 
+  max-width: 49px; 
+  margin: 0;
+}
+
+.eight-square:hover {
+  background-color: #f0f0f0;
+}
+
+.eight-square.black {
+  background-color: #333;
+  color: #fff;
+}
+
+.queen-icon {
+  width: 80%;
+  height: 80%;
+  max-width: 40px;
+  max-height: 40px;
+  padding-top: 6px;
+}
+
+.game-result-lost {
+    color: Red
+}
+
+.game-result-won {
+    color: green
+}

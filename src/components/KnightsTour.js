@@ -10,7 +10,6 @@ function KnightsTourGame() {
   const [currentMove, setCurrentMove] = useState("");
 
   useEffect(() => {
-    // Fetch the initial game position
     axios
       .get("http://localhost:8081/knightstour/start")
       .then((response) => {
@@ -27,13 +26,11 @@ function KnightsTourGame() {
   };
 
   const handleAddMove = () => {
-    // Handle adding the currentMove to userMoves
     setUserMoves([...userMoves, currentMove]);
-    setCurrentMove(""); // Clear the input field
+    setCurrentMove("");
   };
 
   const verifyMoves = () => {
-    // Send a POST request to verify user moves
     axios
       .post("http://localhost:8081/knightstour/verify", {
         name: "user3",
@@ -55,13 +52,13 @@ function KnightsTourGame() {
     <div>
       <h1>Knight's Tour Game</h1>
       <div className="game-container">
-        <div className="chessboard">
+        <div className="chessboard-knights">
           {Array.from({ length: 8 }).map((_, row) => (
             <div key={row} className="chessboard-row">
               {Array.from({ length: 8 }).map((_, col) => {
                 const position = `${String.fromCharCode(65 + col)}${8 - row}`;
                 const isKnightHere = position === chessPosition;
-                const isDarkSquare = (row + col) % 2 === 1; // Alternate square colors
+                const isDarkSquare = (row + col) % 2 === 1;
 
                 const isPositionSelected = isPositionInUserMoves(position);
 
