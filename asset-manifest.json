@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/pdsa-ii/static/css/main.fa551e27.css",
+    "main.js": "/pdsa-ii/static/js/main.5d990dc1.js",
+    "static/media/chess-queen-icon.jpg": "/pdsa-ii/static/media/chess-queen-icon.7999e1e8541fd7d9fd12.jpg",
+    "index.html": "/pdsa-ii/index.html",
+    "main.fa551e27.css.map": "/pdsa-ii/static/css/main.fa551e27.css.map",
+    "main.5d990dc1.js.map": "/pdsa-ii/static/js/main.5d990dc1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fa551e27.css",
+    "static/js/main.5d990dc1.js"
+  ]
+}
