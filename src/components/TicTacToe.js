@@ -82,6 +82,8 @@ function TicTacToeGame() {
           } else if (response.data.gameState == "Draw") {
             setWinner("Draw");
           }
+
+          setIsGameStarted(false)
         } else {
           setIsXNext(true);
         }
@@ -115,7 +117,7 @@ function TicTacToeGame() {
             <button onClick={startGame}>Start Game</button>
         </div>}
 
-        {isGameStarted && board && (
+        {board && (
             <>
             <div className="status">{!isGameConcluded && `Next player: ${isXNext ? "X" : "O"}`}</div>
             <div className="winner">Winner: {winner}</div>
