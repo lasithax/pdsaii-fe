@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import "../styles/shortestPath.css";
+
 function ShortestPathGame() {
   const [gameData, setGameData] = useState(null);
   const [selectedPaths, setSelectedPaths] = useState(Array(9).fill(""));
@@ -33,7 +35,7 @@ function ShortestPathGame() {
   const handleSubmit = () => {
     const requestData = {
       paths: selectedPaths,
-      distances: setSelectedDistances,
+      distances: selectedDistances,
     };
 
     axios
@@ -51,7 +53,7 @@ function ShortestPathGame() {
   }
 
   return (
-    <div>
+    <div className="shortest-path-container">
       <h1>Identify Shortest Path Game</h1>
       <p>Starting City: {gameData.startingCity}</p>
       <div className="graph">
@@ -76,40 +78,44 @@ function ShortestPathGame() {
           </tbody>
         </table>
       </div>
-      <div className="paths">
-        <h2>Select Shortest Paths:</h2>
-        <div>
-          {gameData.distances.map((row, rowIndex) => (
-            <div key={rowIndex}>
-              <label>
-                Path from {gameData.startingCity} to{" "}
-                {String.fromCharCode(65 + rowIndex)}:
-                <input
-                  type="text"
-                  value={selectedPaths[rowIndex]}
-                  onChange={(event) => handlePathChange(rowIndex, event)}
-                />
-              </label>
-            </div>
-          ))}
+      <div className="input-container">
+        <div className="distances">
+          <h2>Enter total distances:</h2>
+          <div>
+            {gameData.distances.map((row, rowIndex) => (
+              <div key={rowIndex}>
+                <label>
+                  Path from {gameData.startingCity} to{" "}
+                  {String.fromCharCode(65 + rowIndex)}:
+                  <input
+                    type="text"
+                    value={selectedDistances[rowIndex]}
+                    onChange={(event) => handleDistanceChange(rowIndex, event)}
+                    className="distances-input"
+                  />
+                </label>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="distances">
-        <h2>Enter total distances:</h2>
-        <div>
-          {gameData.distances.map((row, rowIndex) => (
-            <div key={rowIndex}>
-              <label>
-                Path from {gameData.startingCity} to{" "}
-                {String.fromCharCode(65 + rowIndex)}:
-                <input
-                  type="text"
-                  value={selectedDistances[rowIndex]}
-                  onChange={(event) => handleDistanceChange(rowIndex, event)}
-                />
-              </label>
-            </div>
-          ))}
+        <div className="paths">
+          <h2>Select Shortest Paths:</h2>
+          <div>
+            {gameData.distances.map((row, rowIndex) => (
+              <div key={rowIndex}>
+                <label>
+                  Path from {gameData.startingCity} to{" "}
+                  {String.fromCharCode(65 + rowIndex)}:
+                  <input
+                    type="text"
+                    value={selectedPaths[rowIndex]}
+                    onChange={(event) => handlePathChange(rowIndex, event)}
+                    className="paths-input"
+                  />
+                </label>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <button onClick={handleSubmit}>Submit</button>

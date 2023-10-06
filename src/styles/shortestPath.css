@@ -7,10 +7,13 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f8f8f8;
+  align-items: center;
 }
 
 .graph {
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
 }
 
 table {
@@ -47,7 +50,7 @@ label {
   margin-bottom: 5px;
 }
 
-select, input[type="text"] {
+select, .distances-input, .paths-input {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
@@ -75,4 +78,9 @@ button:hover {
   font-size: 18px;
   margin-top: 20px;
   color: #007BFF;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-around;
 }
