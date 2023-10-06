@@ -121,9 +121,7 @@ function ShortestPathGame() {
       <button onClick={handleSubmit}>Submit</button>
       {result && (
         <div>
-          <p>Result: {result.result}</p>
-          <p>Message: {result.message}</p>
-          <p>Info: {result.info}</p>
+          <p>Result: {result}</p>
         </div>
       )}
     </div>
