@@ -28,10 +28,14 @@ function EightQueensPuzzle() {
   };
 
   const submitResponse = () => {
+    const queenColumns = queenPositions
+      .filter((position) => position !== null)
+      .map((position) => position % 8);
+
     axios
       .post("http://localhost:8081/eightqueens/submit", {
         name: username,
-        response: queenPositions.filter((position) => position !== null),
+        response: queenColumns,
       })
       .then((response) => {
         const { count, message, info, result } = response.data;
@@ -83,7 +87,8 @@ function EightQueensPuzzle() {
   };
 
   const restartGame = () => {
-    window.location.reload()
+    setQueenPositions(Array(64).fill(null));
+    setGameResult(null);
   }
 
   return (
@@ -106,15 +111,21 @@ function EightQueensPuzzle() {
           <h2>Queen Placements</h2>
           <div className="chessboard">{renderChessboard()}</div>
 
-          <button onClick={submitResponse}>Submit Response</button>
-          {gameResult == "LOST" ? (
-            <div className="game-result-lost">{message}: {gameResult}</div>
-          ) : (
-            <div className="game-result-won">{gameResult}</div>
-          )}
+          <div className="game-buttons">
+            <button onClick={restartGame}>Clear Board</button>
+            <button onClick={submitResponse}>Submit Response</button>
+          </div>
+
+          {gameResult === "LOST" ? (
+            <div className="game-result-lost">{gameResult}: {message}</div>
+          ) : gameResult === "WON" ? (
+            <div className="game-result-won">{gameResult}: {message}</div>
+          ) : gameResult === "-" ? (
+            <div className="game-result-draw">{message}</div>
+          ) : null}
         </>
       )}
-      <button onClick={restartGame}>Reload Game</button>
+      
     </div>
   );
 }

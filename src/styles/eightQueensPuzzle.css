@@ -10,6 +10,19 @@
   margin-bottom: 5px;
 }
 
+.game-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.game-buttons button {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  width: 11rem;
+}
+
 input[type="text"] {
   padding: 10px;
   margin-right: 10px;
@@ -71,9 +84,16 @@ button:hover {
 }
 
 .game-result-lost {
+    margin-top: 20px;
     color: Red
 }
 
 .game-result-won {
+    margin-top: 20px;
     color: green
+}
+
+.game-result-draw {
+    margin-top: 20px;
+    color: grey
 }
